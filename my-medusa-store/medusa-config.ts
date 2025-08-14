@@ -2,7 +2,7 @@ import { loadEnv, defineConfig } from '@medusajs/framework/utils'
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
-module.exports = defineConfig({
+export default defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {
@@ -12,29 +12,5 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
-  },
-  modules: [
-    {
-      resolve: "@medusajs/auth",
-      options: {
-        providers: [
-          {
-            resolve: "@medusajs/auth-emailpass",
-            id: "emailpass",
-            options: {
-              // Email/password authentication is enabled by default
-              // You can add additional configuration here if needed
-            }
-          }
-        ]
-      }
-    },
-    {
-      resolve: "@medusajs/payment-stripe",
-      options: {
-        apiKey: process.env.STRIPE_API_KEY,
-        webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
-      }
-    }
-  ]
+  }
 })

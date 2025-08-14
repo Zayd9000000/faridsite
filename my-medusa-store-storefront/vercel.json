@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_MEDUSA_BACKEND_URL": "https://faridsite.onrender.com",
+    "NEXT_PUBLIC_BASE_URL": "https://faridsite.vercel.app",
+    "NEXT_PUBLIC_DEFAULT_REGION": "gb"
+  }
+}

@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: faridsite
+    runtime: node
+    rootDir: my-medusa-store
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "20"
+      - key: DATABASE_URL
+        sync: false  # Set this in Render dashboard
+      - key: JWT_SECRET
+        sync: false  # Set this in Render dashboard
+      - key: COOKIE_SECRET
+        sync: false  # Set this in Render dashboard
+      - key: STORE_CORS
+        value: https://faridsite.vercel.app,http://localhost:3000
+      - key: ADMIN_CORS
+        value: https://faridsite.onrender.com,http://localhost:9000
+      - key: AUTH_CORS
+        value: https://faridsite.vercel.app,https://faridsite.onrender.com
+      - key: REDIS_URL
+        sync: false  # Optional - set if you have Redis
+      - key: STRIPE_API_KEY
+        sync: false  # Set this in Render dashboard
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false  # Set this in Render dashboard

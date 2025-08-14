@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Folio Society Design System Variables */
+:root {
+  /* Colors */
+  --color-primary: #1A1A1A;
+  --color-primary-hover: #000000;
+  --color-white: #FFFFFF;
+  --color-off-white: #FAFAFA;
+  --color-light-gray: #F5F5F5;
+  --color-warm-gray: #F0EDE8;
+  --color-medium-gray: #E5E5E5;
+  --color-text-gray: #666666;
+  --color-dark-gray: #444444;
+  --color-border: #E5E5E5;
+  --color-alert: #FF6B35;
+  
+  /* Typography */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 80px;
+  --spacing-4xl: 100px;
+  
+  /* Transitions */
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Classes */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Sharp corners for all elements */
+  * {
+    border-radius: 0 !important;
+  }
+
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply -translate-y-2 text-xsmall-regular;
+  }
+
+  input:focus ~ label {
+    @apply left-0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid #212121;
+    -webkit-text-fill-color: #212121;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+@layer components {
+  /* Container Classes */
+  .content-container {
+    @apply max-w-[1440px] w-full mx-auto px-10;
+  }
+
+  .content-container-mobile {
+    @apply max-w-[1440px] w-full mx-auto px-5;
+  }
+
+  /* Button Styles - Folio Society */
+  .btn-primary {
+    @apply bg-[#1A1A1A] text-white px-8 py-3 text-xs tracking-wider uppercase font-normal transition-all duration-200 hover:bg-black;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-[#1A1A1A] px-8 py-3 text-xs tracking-wider uppercase font-normal transition-all duration-200 hover:bg-[#1A1A1A] hover:text-white border border-[#1A1A1A];
+  }
+
+  .btn-full {
+    @apply w-full bg-[#1A1A1A] text-white py-3 text-xs tracking-wider uppercase font-normal transition-all duration-200 hover:bg-black;
+  }
+
+  /* Typography - Folio Society Style */
+  .heading-display {
+    font-family: var(--font-serif);
+    @apply text-[56px] leading-tight font-normal;
+  }
+
+  .heading-1 {
+    font-family: var(--font-serif);
+    @apply text-[48px] leading-tight font-normal;
+  }
+
+  .heading-2 {
+    font-family: var(--font-serif);
+    @apply text-[40px] leading-tight font-normal;
+  }
+
+  .heading-3 {
+    font-family: var(--font-serif);
+    @apply text-[32px] leading-tight font-normal;
+  }
+
+  .heading-4 {
+    font-family: var(--font-serif);
+    @apply text-[24px] leading-tight font-normal;
+  }
+
+  .body-large {
+    @apply text-lg leading-relaxed font-light;
+  }
+
+  .body-regular {
+    @apply text-base leading-relaxed font-light;
+  }
+
+  .body-small {
+    @apply text-sm leading-relaxed font-light;
+  }
+
+  .caption {
+    @apply text-xs leading-normal font-normal;
+  }
+
+  .overline {
+    @apply text-[11px] tracking-[1.5px] uppercase font-normal;
+  }
+
+  /* Product Card Styles */
+  .product-card {
+    @apply relative overflow-hidden cursor-pointer transition-transform duration-200 hover:-translate-y-1;
+  }
+
+  .product-card-image {
+    @apply relative h-[360px] overflow-hidden bg-[#F5F5F5];
+  }
+
+  .product-badge {
+    @apply absolute top-4 right-4 bg-[#FF6B35] text-white px-3 py-1 text-[10px] tracking-wider uppercase z-10;
+  }
+
+  /* Navigation Styles */
+  .nav-link {
+    @apply text-[13px] font-normal tracking-[0.5px] text-[#1A1A1A] hover:underline underline-offset-4 transition-all duration-200;
+  }
+
+  .nav-dropdown {
+    @apply absolute top-full left-0 w-full bg-white shadow-lg opacity-0 invisible transition-all duration-200;
+  }
+
+  .nav-dropdown-active {
+    @apply opacity-100 visible;
+  }
+
+  /* Section Spacing */
+  .section-padding {
+    @apply py-20 px-10;
+  }
+
+  .section-padding-mobile {
+    @apply py-10 px-5;
+  }
+
+  /* Grid Layouts */
+  .product-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6;
+  }
+
+  .feature-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-0;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  @keyframes slideRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slideLeft {
+    animation: slideLeft 0.4s ease-out;
+  }
+
+  .animate-slideRight {
+    animation: slideRight 0.4s ease-out;
+  }
+
+  /* Old text classes for compatibility */
+  .text-xsmall-regular {
+    @apply text-[10px] leading-4 font-normal;
+  }
+
+  .text-small-regular {
+    @apply text-xs leading-5 font-normal;
+  }
+
+  .text-small-semi {
+    @apply text-xs leading-5 font-medium;
+  }
+
+  .text-base-regular {
+    @apply text-sm leading-6 font-normal;
+  }
+
+  .text-base-semi {
+    @apply text-sm leading-6 font-medium;
+  }
+
+  .text-large-regular {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .text-large-semi {
+    @apply text-base leading-6 font-medium;
+  }
+}

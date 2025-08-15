@@ -3,7 +3,7 @@ services:
     name: faridsite
     runtime: node
     rootDir: my-medusa-store
-    buildCommand: npm install && npm run build
+    buildCommand: npm ci && npm run build
     startCommand: npm run start
     envVars:
       - key: NODE_ENV
@@ -27,4 +27,8 @@ services:
       - key: STRIPE_API_KEY
         sync: false  # Set this in Render dashboard
       - key: STRIPE_WEBHOOK_SECRET
+        sync: false  # Set this in Render dashboard
+      - key: MEDUSA_BACKEND_URL
+        value: https://faridsite.onrender.com
+      - key: MEDUSA_PUBLISHABLE_KEY
         sync: false  # Set this in Render dashboard

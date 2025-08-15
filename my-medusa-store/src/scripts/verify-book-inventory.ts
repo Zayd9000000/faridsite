@@ -37,7 +37,7 @@ export default async function verifyBookInventory({ container }: ExecArgs) {
 
   const bookInventoryLevels = inventoryLevels.filter(level => 
     level.inventory_item?.sku && bookSkuPatterns.some(pattern => 
-      level.inventory_item.sku.includes(pattern)
+      level.inventory_item?.sku?.includes(pattern)
     )
   );
 

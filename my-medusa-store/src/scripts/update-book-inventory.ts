@@ -46,7 +46,7 @@ export default async function updateBookInventory({ container }: ExecArgs) {
   ];
 
   const bookInventoryItems = inventoryItems.filter(item => 
-    item.sku && bookSkuPatterns.some(pattern => item.sku.includes(pattern))
+    item.sku && bookSkuPatterns.some(pattern => item.sku!.includes(pattern))
   );
 
   logger.info(`Found ${bookInventoryItems.length} book-related inventory items`);

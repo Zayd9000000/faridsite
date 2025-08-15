@@ -4,6 +4,7 @@
   "framework": "nextjs",
   "env": {
     "NEXT_PUBLIC_MEDUSA_BACKEND_URL": "https://faridsite.onrender.com",
+    "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY": "pk_d08f0b715be8ac9b65772612b085d90658b4c244784c9651518dac62a5d12325",
     "NEXT_PUBLIC_BASE_URL": "https://faridsite.vercel.app",
     "NEXT_PUBLIC_DEFAULT_REGION": "gb"
   }

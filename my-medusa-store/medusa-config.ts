@@ -2,39 +2,46 @@ import { loadEnv, defineConfig } from '@medusajs/framework/utils'
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
+// Build the modules array dynamically based on available environment variables
+const modules: any[] = [
+  {
+    resolve: "@medusajs/auth",
+    options: {
+      providers: [
+        {
+          resolve: "@medusajs/auth-emailpass",
+          id: "emailpass",
+          options: {
+            // Email/password authentication is enabled by default
+            // You can add additional configuration here if needed
+          }
+        }
+      ]
+    }
+  }
+]
+
+// Only add Stripe module if the required environment variables are present
+if (process.env.STRIPE_API_KEY && process.env.STRIPE_WEBHOOK_SECRET) {
+  modules.push({
+    resolve: "@medusajs/payment-stripe",
+    options: {
+      apiKey: process.env.STRIPE_API_KEY,
+      webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+    }
+  })
+}
+
 export default defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {
-      storeCors: process.env.STORE_CORS!,
-      adminCors: process.env.ADMIN_CORS!,
-      authCors: process.env.AUTH_CORS!,
+      storeCors: process.env.STORE_CORS || "http://localhost:3000,http://localhost:8000",
+      adminCors: process.env.ADMIN_CORS || "http://localhost:5173,http://localhost:9000",
+      authCors: process.env.AUTH_CORS || "http://localhost:3000,http://localhost:5173,http://localhost:9000",
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
   }, 
-  modules: [
-    {
-      resolve: "@medusajs/auth",
-      options: {
-        providers: [
-          {
-            resolve: "@medusajs/auth-emailpass",
-            id: "emailpass",
-            options: {
-              // Email/password authentication is enabled by default
-              // You can add additional configuration here if needed
-            }
-          }
-        ]
-      }
-    },
-    {
-      resolve: "@medusajs/payment-stripe",
-      options: {
-        apiKey: process.env.STRIPE_API_KEY,
-        webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
-      }
-    }
-  ]
+  modules
 })

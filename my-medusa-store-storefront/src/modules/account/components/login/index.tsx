@@ -74,6 +74,13 @@ const Login = ({ setCurrentView }: Props) => {
           Create Account
         </button>
       </div>
+      
+      <div className="mt-12 pt-8 border-t border-[#E5E5E5] text-center">
+        <p className="text-[14px] text-[#666] italic">
+          "A room without books is like a body without a soul."
+        </p>
+        <p className="text-[12px] text-[#999] mt-2">— Marcus Tullius Cicero</p>
+      </div>
     </div>
   )
 }

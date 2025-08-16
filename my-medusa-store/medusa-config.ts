@@ -4,7 +4,7 @@ loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 // Build the modules object conditionally
 const modules: Record<string, any> = {
-  "@medusajs/auth": {
+  auth: {
     resolve: "@medusajs/auth",
     options: {
       providers: [
@@ -20,7 +20,7 @@ const modules: Record<string, any> = {
 
 // Only add Stripe if API key is present (webhook secret is optional for build)
 if (process.env.STRIPE_API_KEY && process.env.STRIPE_API_KEY !== 'your_stripe_secret_key') {
-  modules["@medusajs/payment-stripe"] = {
+  modules.payment_stripe = {
     resolve: "@medusajs/payment-stripe",
     options: {
       apiKey: process.env.STRIPE_API_KEY,

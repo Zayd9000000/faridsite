@@ -2,7 +2,7 @@ import { loadEnv, defineConfig } from '@medusajs/framework/utils'
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
-// Build the modules object conditionally
+// Build the modules object - only auth for now
 const modules: Record<string, any> = {
   auth: {
     resolve: "@medusajs/auth",
@@ -18,16 +18,17 @@ const modules: Record<string, any> = {
   }
 }
 
-// Only add Stripe if API key is present (webhook secret is optional for build)
-if (process.env.STRIPE_API_KEY && process.env.STRIPE_API_KEY !== 'your_stripe_secret_key') {
-  modules.payment_stripe = {
-    resolve: "@medusajs/payment-stripe",
-    options: {
-      apiKey: process.env.STRIPE_API_KEY,
-      webhookSecret: process.env.STRIPE_WEBHOOK_SECRET || "",
-    }
-  }
-}
+// Stripe payment module temporarily disabled to fix deployment
+// Will re-enable once we have the correct configuration
+// if (process.env.STRIPE_API_KEY && process.env.STRIPE_API_KEY !== 'your_stripe_secret_key') {
+//   modules.payment_stripe = {
+//     resolve: "@medusajs/payment-stripe",
+//     options: {
+//       apiKey: process.env.STRIPE_API_KEY,
+//       webhookSecret: process.env.STRIPE_WEBHOOK_SECRET || "",
+//     }
+//   }
+// }
 
 export default defineConfig({
   projectConfig: {

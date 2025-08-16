@@ -2,9 +2,9 @@ import { loadEnv, defineConfig } from '@medusajs/framework/utils'
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
-// Build the modules array conditionally
-const modules: any[] = [
-  {
+// Build the modules object conditionally
+const modules: Record<string, any> = {
+  "@medusajs/auth": {
     resolve: "@medusajs/auth",
     options: {
       providers: [
@@ -16,17 +16,17 @@ const modules: any[] = [
       ]
     }
   }
-]
+}
 
 // Only add Stripe if API key is present (webhook secret is optional for build)
 if (process.env.STRIPE_API_KEY && process.env.STRIPE_API_KEY !== 'your_stripe_secret_key') {
-  modules.push({
+  modules["@medusajs/payment-stripe"] = {
     resolve: "@medusajs/payment-stripe",
     options: {
       apiKey: process.env.STRIPE_API_KEY,
       webhookSecret: process.env.STRIPE_WEBHOOK_SECRET || "",
     }
-  })
+  }
 }
 
 export default defineConfig({

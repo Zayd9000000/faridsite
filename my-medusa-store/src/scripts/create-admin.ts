@@ -3,7 +3,7 @@ import {
   ContainerRegistrationKeys,
   Modules,
 } from "@medusajs/framework/utils";
-import { createAdminUserWorkflow } from "@medusajs/medusa/core-flows";
+import { createUsersWorkflow } from "@medusajs/medusa/core-flows";
 
 export default async function createAdmin({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
@@ -27,16 +27,16 @@ export default async function createAdmin({ container }: ExecArgs) {
       logger.info("Admin user already exists, updating authentication...");
     } else {
       // Create new admin user using the workflow
-      const { result } = await createAdminUserWorkflow(container).run({
+      const { result } = await createUsersWorkflow(container).run({
         input: {
-          userData: {
+          users: [{
             email: email,
             first_name: "Admin",
             last_name: "User"
-          }
+          }]
         }
       });
-      user = result;
+      user = result[0]; // Result is an array
       logger.info("Admin user created successfully");
     }
 
@@ -52,7 +52,7 @@ export default async function createAdmin({ container }: ExecArgs) {
       if (existingIdentities.length > 0) {
         // Delete existing auth identity to recreate it properly
         logger.info("Removing existing auth identity to recreate it...");
-        await authModuleService.deleteAuthIdentities(existingIdentities[0].id);
+        await authModuleService.deleteAuthIdentities([existingIdentities[0].id]);
       }
 
       // Create authentication identity with password in the correct place

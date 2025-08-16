@@ -18,7 +18,7 @@ export default async function deleteAdmin({ container }: ExecArgs) {
     const authIdentities = await authModuleService.listAuthIdentities({});
     for (const identity of authIdentities) {
       logger.info(`Deleting auth identity: ${identity.id}`);
-      await authModuleService.deleteAuthIdentities(identity.id);
+      await authModuleService.deleteAuthIdentities([identity.id]);
     }
     
     // Find and delete user
@@ -28,7 +28,7 @@ export default async function deleteAdmin({ container }: ExecArgs) {
     
     if (users.length > 0) {
       logger.info(`Deleting user: ${users[0].id}`);
-      await userModuleService.deleteUsers(users[0].id);
+      await userModuleService.deleteUsers([users[0].id]);
       logger.info("User deleted successfully");
     }
     

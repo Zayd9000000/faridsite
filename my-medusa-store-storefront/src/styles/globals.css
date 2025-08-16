@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -19,7 +19,7 @@
   --color-alert: #FF6B35;
   
   /* Typography */
-  --font-serif: 'Playfair Display', serif;
+  --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   
   /* Spacing */
@@ -125,43 +125,43 @@ body {
     @apply max-w-[1440px] w-full mx-auto px-5;
   }
 
-  /* Button Styles - Folio Society */
+  /* Button Styles - Refined Luxury */
   .btn-primary {
-    @apply bg-[#1A1A1A] text-white px-8 py-3 text-xs tracking-wider uppercase font-normal transition-all duration-200 hover:bg-black;
+    @apply bg-[#1A1A1A] text-white px-10 py-4 text-[12px] tracking-[1.5px] uppercase font-medium transition-all duration-300 hover:bg-black;
   }
 
   .btn-secondary {
-    @apply bg-white text-[#1A1A1A] px-8 py-3 text-xs tracking-wider uppercase font-normal transition-all duration-200 hover:bg-[#1A1A1A] hover:text-white border border-[#1A1A1A];
+    @apply bg-white text-[#1A1A1A] px-10 py-4 text-[12px] tracking-[1.5px] uppercase font-medium transition-all duration-300 hover:bg-[#1A1A1A] hover:text-white border-2 border-[#1A1A1A];
   }
 
   .btn-full {
-    @apply w-full bg-[#1A1A1A] text-white py-3 text-xs tracking-wider uppercase font-normal transition-all duration-200 hover:bg-black;
+    @apply w-full bg-[#1A1A1A] text-white py-4 text-[12px] tracking-[1.5px] uppercase font-medium transition-all duration-300 hover:bg-black;
   }
 
-  /* Typography - Folio Society Style */
+  /* Typography - Sleek and Tight */
   .heading-display {
     font-family: var(--font-serif);
-    @apply text-[56px] leading-tight font-normal;
+    @apply text-[48px] leading-[1.08] font-normal;
   }
 
   .heading-1 {
     font-family: var(--font-serif);
-    @apply text-[48px] leading-tight font-normal;
+    @apply text-[40px] leading-[1.1] font-normal;
   }
 
   .heading-2 {
     font-family: var(--font-serif);
-    @apply text-[40px] leading-tight font-normal;
+    @apply text-[32px] leading-[1.15] font-normal;
   }
 
   .heading-3 {
     font-family: var(--font-serif);
-    @apply text-[32px] leading-tight font-normal;
+    @apply text-[26px] leading-[1.2] font-normal;
   }
 
   .heading-4 {
     font-family: var(--font-serif);
-    @apply text-[24px] leading-tight font-normal;
+    @apply text-[22px] leading-[1.25] font-light;
   }
 
   .body-large {

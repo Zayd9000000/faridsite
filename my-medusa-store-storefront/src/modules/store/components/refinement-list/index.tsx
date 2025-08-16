@@ -1,7 +1,8 @@
 "use client"
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
+import { ChevronDown } from "lucide-react"
 
 import SortProducts, { SortOptions } from "./sort-products"
 
@@ -15,6 +16,7 @@ const RefinementList = ({ sortBy, 'data-testid': dataTestId }: RefinementListPro
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const [expandedSections, setExpandedSections] = useState<string[]>(["sort", "category", "collection"])
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -31,9 +33,111 @@ const RefinementList = ({ sortBy, 'data-testid': dataTestId }: RefinementListPro
     router.push(`${pathname}?${query}`)
   }
 
+  const toggleSection = (section: string) => {
+    setExpandedSections(prev => 
+      prev.includes(section) 
+        ? prev.filter(s => s !== section)
+        : [...prev, section]
+    )
+  }
+
+  const categories = [
+    "New Arrivals",
+    "Collector's Editions",
+    "Fiction Masterworks",
+    "Historical Epics",
+    "Philosophy & Essays",
+    "Poetry Collections",
+    "Science & Nature",
+    "Limited Editions",
+    "Under £50",
+    "Gifts",
+    "Last Chance"
+  ]
+
+  const collections = [
+    "Literary Classics",
+    "Modern Literature",
+    "World Literature",
+    "Gothic & Horror",
+    "Science Fiction",
+    "Fantasy Epics",
+    "Historical Fiction",
+    "Philosophy"
+  ]
+
   return (
-    <div className="flex small:flex-col gap-12 py-4 mb-8 small:px-0 pl-6 small:min-w-[250px] small:ml-[1.675rem]">
-      <SortProducts sortBy={sortBy} setQueryParams={setQueryParams} data-testid={dataTestId} />
+    <div className="flex small:flex-col gap-6 py-4 mb-8 small:px-0 pl-6 small:min-w-[280px] small:mr-8">
+      {/* Sort Section */}
+      <div className="border-b border-[#E5E5E5] pb-6">
+        <button
+          onClick={() => toggleSection("sort")}
+          className="flex items-center justify-between w-full text-left mb-4"
+        >
+          <h3 className="text-sm font-medium uppercase tracking-wider text-[#1A1A1A]">Sort By</h3>
+          <ChevronDown 
+            size={16} 
+            className={`transition-transform ${expandedSections.includes("sort") ? "rotate-180" : ""}`}
+          />
+        </button>
+        {expandedSections.includes("sort") && (
+          <SortProducts sortBy={sortBy} setQueryParams={setQueryParams} data-testid={dataTestId} />
+        )}
+      </div>
+
+      {/* Categories Section */}
+      <div className="border-b border-[#E5E5E5] pb-6">
+        <button
+          onClick={() => toggleSection("category")}
+          className="flex items-center justify-between w-full text-left mb-4"
+        >
+          <h3 className="text-sm font-medium uppercase tracking-wider text-[#1A1A1A]">Categories</h3>
+          <ChevronDown 
+            size={16} 
+            className={`transition-transform ${expandedSections.includes("category") ? "rotate-180" : ""}`}
+          />
+        </button>
+        {expandedSections.includes("category") && (
+          <div className="space-y-3">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className="block w-full text-left text-sm text-[#666] hover:text-[#1A1A1A] transition-colors"
+                onClick={() => console.log(`Filter by ${category}`)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Collections Section */}
+      <div className="border-b border-[#E5E5E5] pb-6">
+        <button
+          onClick={() => toggleSection("collection")}
+          className="flex items-center justify-between w-full text-left mb-4"
+        >
+          <h3 className="text-sm font-medium uppercase tracking-wider text-[#1A1A1A]">Collections</h3>
+          <ChevronDown 
+            size={16} 
+            className={`transition-transform ${expandedSections.includes("collection") ? "rotate-180" : ""}`}
+          />
+        </button>
+        {expandedSections.includes("collection") && (
+          <div className="space-y-3">
+            {collections.map((collection) => (
+              <button
+                key={collection}
+                className="block w-full text-left text-sm text-[#666] hover:text-[#1A1A1A] transition-colors"
+                onClick={() => console.log(`Filter by ${collection}`)}
+              >
+                {collection}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

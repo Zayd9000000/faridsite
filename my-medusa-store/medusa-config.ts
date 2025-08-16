@@ -40,5 +40,8 @@ export default defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
   },
+  admin: process.env.NODE_ENV === 'production' ? { 
+    disable: true 
+  } : undefined,
   modules
 })

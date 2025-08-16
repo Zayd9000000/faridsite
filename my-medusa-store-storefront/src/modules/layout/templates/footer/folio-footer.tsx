@@ -42,7 +42,7 @@ const FolioFooter = () => {
           <div className="hidden md:grid grid-cols-4 gap-12">
             {/* Newsletter Column */}
             <div>
-              <h4 className="overline mb-4">STAY INSPIRED</h4>
+              <h4 className="text-sm font-medium mb-4">STAY INSPIRED</h4>
               <p className="text-sm text-[#666] mb-4">
                 Be the first to discover new editions, exclusive offers, and literary events.
               </p>
@@ -63,7 +63,7 @@ const FolioFooter = () => {
 
             {/* Customer Service */}
             <div>
-              <h4 className="overline mb-4">CUSTOMER SERVICE</h4>
+              <h4 className="text-sm font-medium mb-4">CUSTOMER SERVICE</h4>
               <ul className="space-y-2">
                 <li>
                   <LocalizedClientLink href="/faq" className="text-sm text-[#666] hover:text-[#1A1A1A]">
@@ -95,7 +95,7 @@ const FolioFooter = () => {
 
             {/* About Us */}
             <div>
-              <h4 className="overline mb-4">ABOUT US</h4>
+              <h4 className="text-sm font-medium mb-4">ABOUT US</h4>
               <ul className="space-y-2">
                 <li>
                   <LocalizedClientLink href="/about" className="text-sm text-[#666] hover:text-[#1A1A1A]">
@@ -127,7 +127,7 @@ const FolioFooter = () => {
 
             {/* Contact */}
             <div>
-              <h4 className="overline mb-4">CONTACT US</h4>
+              <h4 className="text-sm font-medium mb-4">CONTACT US</h4>
               <p className="text-sm text-[#666] mb-2">020 7400 4200</p>
               <p className="text-sm text-[#666] mb-4">
                 <a href="mailto:enquiries@literarycollection.com" className="hover:text-[#1A1A1A]">
@@ -145,7 +145,7 @@ const FolioFooter = () => {
           <div className="md:hidden">
             {/* Newsletter */}
             <div className="mb-6 pb-6 border-b border-[#E5E5E5]">
-              <h4 className="overline mb-4">STAY INSPIRED</h4>
+              <h4 className="text-sm font-medium mb-4">STAY INSPIRED</h4>
               <p className="text-sm text-[#666] mb-4">
                 Be the first to discover new editions and exclusive offers.
               </p>
@@ -172,7 +172,7 @@ const FolioFooter = () => {
                   onClick={() => toggleSection('customer')}
                   className="w-full flex justify-between items-center py-3"
                 >
-                  <span className="overline">CUSTOMER SERVICE</span>
+                  <span className="text-sm font-medium">CUSTOMER SERVICE</span>
                   {expandedSection === 'customer' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </button>
                 {expandedSection === 'customer' && (
@@ -191,7 +191,7 @@ const FolioFooter = () => {
                   onClick={() => toggleSection('about')}
                   className="w-full flex justify-between items-center py-3"
                 >
-                  <span className="overline">ABOUT THE COLLECTION</span>
+                  <span className="text-sm font-medium">ABOUT THE COLLECTION</span>
                   {expandedSection === 'about' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </button>
                 {expandedSection === 'about' && (

@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useRef } from "react"
-import Link from "next/link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { HttpTypes } from "@medusajs/types"
 import { addToCart } from "@lib/data/cart"
 import { useParams } from "next/navigation"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 interface FolioCarouselProps {
   products: any[]
@@ -133,11 +133,11 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
     <section className="py-20 bg-white">
       <div className="content-container">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="heading-3 mb-4">
+        <div className="text-center mb-10">
+          <h2 className="font-serif text-[42px] leading-[46px] font-medium mb-3">
             {title || "What Everyone's Reading Right Now"}
           </h2>
-          <p className="body-regular text-[#666]">
+          <p className="text-[15px] leading-[22px] font-normal text-[#666]">
             {subtitle || "Our most sought-after editions. These are the treasures that collectors return to time and again."}
           </p>
         </div>
@@ -189,7 +189,7 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
               const author = product.metadata?.author || product.author || 'Classic Edition'
               
               return (
-                <Link
+                <LocalizedClientLink
                   key={product.id}
                   href={`/products/${product.handle}`}
                   className="group flex-none w-[260px] cursor-pointer"
@@ -237,15 +237,15 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
                     </div>
 
                     {/* Product Info */}
-                    <div className="pt-4">
-                      <p className="text-xs text-[#666] mb-1">{author}</p>
-                      <h3 className="font-serif text-base mb-2 group-hover:underline">
+                    <div className="pt-3">
+                      <p className="text-[12px] text-[#666] mb-1 font-medium tracking-[1px] uppercase">{author}</p>
+                      <h3 className="font-serif text-[18px] leading-[22px] font-medium mb-1 group-hover:underline">
                         {product.title}
                       </h3>
-                      <p className="text-sm font-medium">{price}</p>
+                      <p className="text-[14px] font-semibold">{price}</p>
                     </div>
                   </div>
-                </Link>
+                </LocalizedClientLink>
               )
             })}
           </div>

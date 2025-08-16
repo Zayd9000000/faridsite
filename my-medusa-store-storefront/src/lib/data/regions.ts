@@ -6,6 +6,30 @@ import { HttpTypes } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
 
 export const listRegions = async () => {
+  // TEMPORARY: Skip API calls and use hardcoded regions for development
+  console.log("[listRegions] Using hardcoded regions for development")
+  return [{
+    id: "reg_01K2FSDGWWFA08RTVN7R12HWJD",
+    name: "Europe",
+    currency_code: "gbp",
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    deleted_at: null,
+    metadata: null,
+    countries: [
+      { id: "gb", iso_2: "gb", iso_3: "gbr", num_code: "826", name: "UNITED KINGDOM", display_name: "United Kingdom" },
+      { id: "dk", iso_2: "dk", iso_3: "dnk", num_code: "208", name: "DENMARK", display_name: "Denmark" },
+      { id: "fr", iso_2: "fr", iso_3: "fra", num_code: "250", name: "FRANCE", display_name: "France" },
+      { id: "de", iso_2: "de", iso_3: "deu", num_code: "276", name: "GERMANY", display_name: "Germany" },
+      { id: "it", iso_2: "it", iso_3: "ita", num_code: "380", name: "ITALY", display_name: "Italy" },
+      { id: "es", iso_2: "es", iso_3: "esp", num_code: "724", name: "SPAIN", display_name: "Spain" },
+      { id: "se", iso_2: "se", iso_3: "swe", num_code: "752", name: "SWEDEN", display_name: "Sweden" },
+      { id: "us", iso_2: "us", iso_3: "usa", num_code: "840", name: "UNITED STATES", display_name: "United States" }
+    ]
+  }] as any
+  
+  // COMMENTED OUT FOR DEVELOPMENT - UNCOMMENT WHEN YOU HAVE VALID PUBLISHABLE KEY
+  /*
   // First try direct fetch which is more reliable
   try {
     const backendUrl = process.env.MEDUSA_BACKEND_URL || 'http://localhost:9000'
@@ -72,6 +96,7 @@ export const listRegions = async () => {
           { id: "us", iso_2: "us", iso_3: "usa", num_code: "840", name: "UNITED STATES", display_name: "United States" }
         ]
       }] as any
+  */
 }
 
 export const retrieveRegion = async (id: string) => {

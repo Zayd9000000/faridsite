@@ -2,12 +2,32 @@ import { loadEnv, defineConfig } from '@medusajs/framework/utils'
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
-// Debug: Log environment variables during build
-console.log('Build Environment Check:', {
-  NODE_ENV: process.env.NODE_ENV,
-  DATABASE_URL: process.env.DATABASE_URL ? 'SET' : 'NOT SET',
-  STRIPE_API_KEY: process.env.STRIPE_API_KEY ? 'SET' : 'NOT SET',
-})
+// Build the modules array conditionally
+const modules: any[] = [
+  {
+    resolve: "@medusajs/auth",
+    options: {
+      providers: [
+        {
+          resolve: "@medusajs/auth-emailpass",
+          id: "emailpass",
+          options: {}
+        }
+      ]
+    }
+  }
+]
+
+// Only add Stripe if API key is present (webhook secret is optional for build)
+if (process.env.STRIPE_API_KEY && process.env.STRIPE_API_KEY !== 'your_stripe_secret_key') {
+  modules.push({
+    resolve: "@medusajs/payment-stripe",
+    options: {
+      apiKey: process.env.STRIPE_API_KEY,
+      webhookSecret: process.env.STRIPE_WEBHOOK_SECRET || "",
+    }
+  })
+}
 
 export default defineConfig({
   projectConfig: {
@@ -20,18 +40,5 @@ export default defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
   },
-  modules: [
-    {
-      resolve: "@medusajs/auth",
-      options: {
-        providers: [
-          {
-            resolve: "@medusajs/auth-emailpass",
-            id: "emailpass",
-            options: {}
-          }
-        ]
-      }
-    }
-  ]
+  modules
 })

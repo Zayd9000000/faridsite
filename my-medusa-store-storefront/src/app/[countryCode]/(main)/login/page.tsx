@@ -16,8 +16,7 @@ export default function LoginPage() {
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('/images/site/cottage.jpg')`,
-              filter: 'brightness(0.4)'
+              backgroundImage: `url('/images/site/cottage.jpg')`
             }}
           />
         </div>

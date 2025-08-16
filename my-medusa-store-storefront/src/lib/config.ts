@@ -3,7 +3,10 @@ import Medusa from "@medusajs/js-sdk"
 // Defaults to standard port for Medusa server
 let MEDUSA_BACKEND_URL = "http://localhost:9000"
 
-if (process.env.MEDUSA_BACKEND_URL) {
+// Check both MEDUSA_BACKEND_URL and NEXT_PUBLIC_MEDUSA_BACKEND_URL for compatibility
+if (process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL) {
+  MEDUSA_BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
+} else if (process.env.MEDUSA_BACKEND_URL) {
   MEDUSA_BACKEND_URL = process.env.MEDUSA_BACKEND_URL
 }
 

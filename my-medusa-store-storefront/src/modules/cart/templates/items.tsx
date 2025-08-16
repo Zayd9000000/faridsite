@@ -1,6 +1,5 @@
 import repeat from "@lib/util/repeat"
 import { HttpTypes } from "@medusajs/types"
-import { Heading, Table } from "@medusajs/ui"
 
 import Item from "@modules/cart/components/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
@@ -13,24 +12,17 @@ const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
   const items = cart?.items
   return (
     <div>
-      <div className="pb-3 flex items-center">
-        <Heading className="text-[2rem] leading-[2.75rem]">Cart</Heading>
+      <div className="pb-8">
+        <h1 className="font-serif text-[40px] leading-[44px] font-medium text-[#1A1A1A]">Shopping Cart</h1>
       </div>
-      <Table>
-        <Table.Header className="border-t-0">
-          <Table.Row className="text-ui-fg-subtle txt-medium-plus">
-            <Table.HeaderCell className="!pl-0">Item</Table.HeaderCell>
-            <Table.HeaderCell></Table.HeaderCell>
-            <Table.HeaderCell>Quantity</Table.HeaderCell>
-            <Table.HeaderCell className="hidden small:table-cell">
-              Price
-            </Table.HeaderCell>
-            <Table.HeaderCell className="!pr-0 text-right">
-              Total
-            </Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
+      <div className="border-t border-[#E5E5E5]">
+        <div className="grid grid-cols-[2fr_1fr_1fr_1fr] gap-4 py-4 text-[11px] uppercase tracking-[0.8px] text-[#666] border-b border-[#E5E5E5]">
+          <div>Item</div>
+          <div className="text-center">Quantity</div>
+          <div className="text-center hidden md:block">Price</div>
+          <div className="text-right">Total</div>
+        </div>
+        <div>
           {items
             ? items
                 .sort((a, b) => {
@@ -48,8 +40,8 @@ const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
             : repeat(5).map((i) => {
                 return <SkeletonLineItem key={i} />
               })}
-        </Table.Body>
-      </Table>
+        </div>
+      </div>
     </div>
   )
 }

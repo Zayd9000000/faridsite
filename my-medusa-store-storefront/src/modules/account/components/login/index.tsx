@@ -14,49 +14,66 @@ const Login = ({ setCurrentView }: Props) => {
 
   return (
     <div
-      className="max-w-sm w-full flex flex-col items-center"
+      className="max-w-md w-full flex flex-col"
       data-testid="login-page"
     >
-      <h1 className="text-large-semi uppercase mb-6">Welcome back</h1>
-      <p className="text-center text-base-regular text-ui-fg-base mb-8">
-        Sign in to access an enhanced shopping experience.
+      <h1 className="font-serif text-[32px] leading-[36px] font-medium text-[#1A1A1A] mb-3 text-center">
+        Welcome Back
+      </h1>
+      <p className="text-center text-[15px] leading-[24px] text-[#666] mb-10">
+        Sign in to access your account and continue your literary journey.
       </p>
       <form className="w-full" action={formAction}>
-        <div className="flex flex-col w-full gap-y-2">
-          <Input
-            label="Email"
-            name="email"
-            type="email"
-            title="Enter a valid email address."
-            autoComplete="email"
-            required
-            data-testid="email-input"
-          />
-          <Input
-            label="Password"
-            name="password"
-            type="password"
-            autoComplete="current-password"
-            required
-            data-testid="password-input"
-          />
+        <div className="flex flex-col w-full gap-y-5">
+          <div>
+            <label className="text-[11px] uppercase tracking-[0.8px] text-[#666] block mb-2">
+              Email Address
+            </label>
+            <input
+              name="email"
+              type="email"
+              title="Enter a valid email address."
+              autoComplete="email"
+              required
+              data-testid="email-input"
+              className="w-full px-4 py-3 border border-[#E5E5E5] text-[14px] focus:outline-none focus:border-[#1A1A1A] transition-colors"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div>
+            <label className="text-[11px] uppercase tracking-[0.8px] text-[#666] block mb-2">
+              Password
+            </label>
+            <input
+              name="password"
+              type="password"
+              autoComplete="current-password"
+              required
+              data-testid="password-input"
+              className="w-full px-4 py-3 border border-[#E5E5E5] text-[14px] focus:outline-none focus:border-[#1A1A1A] transition-colors"
+              placeholder="Enter your password"
+            />
+          </div>
         </div>
         <ErrorMessage error={message} data-testid="login-error-message" />
-        <SubmitButton data-testid="sign-in-button" className="w-full mt-6">
-          Sign in
-        </SubmitButton>
+        <button
+          type="submit"
+          data-testid="sign-in-button"
+          className="w-full bg-[#1A1A1A] text-white py-4 text-[12px] tracking-[1.5px] uppercase font-medium hover:bg-black transition-all duration-200 mt-8"
+        >
+          Sign In
+        </button>
       </form>
-      <span className="text-center text-ui-fg-base text-small-regular mt-6">
-        Not a member?{" "}
+      <div className="text-center text-[14px] text-[#666] mt-8">
+        New to The Literary Collection?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
-          className="underline"
+          className="text-[#1A1A1A] font-medium hover:underline"
           data-testid="register-button"
         >
-          Join us
+          Create Account
         </button>
-        .
-      </span>
+      </div>
     </div>
   )
 }

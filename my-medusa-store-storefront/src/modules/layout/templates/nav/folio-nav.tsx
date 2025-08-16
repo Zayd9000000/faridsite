@@ -143,8 +143,8 @@ const FolioNav = ({ cartItemCount = 0, customer }: FolioNavProps) => {
                 
                 {/* Dropdown Menu */}
                 {item.hasDropdown && activeDropdown === item.label && (
-                  <div className="absolute top-full left-0 w-screen -ml-[50vw] mt-[1px]">
-                    <div className="bg-white border-b border-[#E5E5E5] shadow-lg">
+                  <div className="absolute left-0 w-screen -ml-[50vw] mt-8 z-40" style={{ top: '100%' }}>
+                    <div className="bg-white border-y border-[#E5E5E5] shadow-lg">
                       <div className="content-container py-8">
                         <div className="grid grid-cols-4 gap-10">
                           {/* Categories */}

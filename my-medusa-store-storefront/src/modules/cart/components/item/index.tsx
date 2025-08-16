@@ -1,11 +1,9 @@
 "use client"
 
-import { Table, Text, clx } from "@medusajs/ui"
-import { updateLineItem } from "@lib/data/cart"
+import { updateLineItem, deleteLineItem } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 import CartItemSelect from "@modules/cart/components/cart-item-select"
 import ErrorMessage from "@modules/checkout/components/error-message"
-import DeleteButton from "@modules/common/components/delete-button"
 import LineItemOptions from "@modules/common/components/line-item-options"
 import LineItemPrice from "@modules/common/components/line-item-price"
 import LineItemUnitPrice from "@modules/common/components/line-item-unit-price"
@@ -13,6 +11,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Spinner from "@modules/common/icons/spinner"
 import Thumbnail from "@modules/products/components/thumbnail"
 import { useState } from "react"
+import { Trash2 } from "lucide-react"
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem
@@ -44,15 +43,12 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
   const maxQtyFromInventory = 10
   const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory
 
-  return (
-    <Table.Row className="w-full" data-testid="product-row">
-      <Table.Cell className="!pl-0 p-4 w-24">
+  if (type === "preview") {
+    return (
+      <div className="flex items-center gap-4 py-4 border-b border-[#E5E5E5]">
         <LocalizedClientLink
           href={`/products/${item.product_handle}`}
-          className={clx("flex", {
-            "w-16": type === "preview",
-            "small:w-24 w-12": type === "full",
-          })}
+          className="w-16"
         >
           <Thumbnail
             thumbnail={item.thumbnail}
@@ -60,84 +56,99 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
             size="square"
           />
         </LocalizedClientLink>
-      </Table.Cell>
-
-      <Table.Cell className="text-left">
-        <Text
-          className="txt-medium-plus text-ui-fg-base"
-          data-testid="product-title"
-        >
-          {item.product_title}
-        </Text>
-        <LineItemOptions variant={item.variant} data-testid="product-variant" />
-      </Table.Cell>
-
-      {type === "full" && (
-        <Table.Cell>
-          <div className="flex gap-2 items-center w-28">
-            <DeleteButton id={item.id} data-testid="product-delete-button" />
-            <CartItemSelect
-              value={item.quantity}
-              onChange={(value) => changeQuantity(parseInt(value.target.value))}
-              className="w-14 h-10 p-4"
-              data-testid="product-select-button"
-            >
-              {/* TODO: Update this with the v2 way of managing inventory */}
-              {Array.from(
-                {
-                  length: Math.min(maxQuantity, 10),
-                },
-                (_, i) => (
-                  <option value={i + 1} key={i}>
-                    {i + 1}
-                  </option>
-                )
-              )}
-
-              <option value={1} key={1}>
-                1
-              </option>
-            </CartItemSelect>
-            {updating && <Spinner />}
+        <div className="flex-1">
+          <h3 className="font-serif text-sm font-medium text-[#1A1A1A]">
+            {item.product_title}
+          </h3>
+          <LineItemOptions variant={item.variant} data-testid="product-variant" />
+          <div className="flex items-center gap-2 mt-1 text-sm text-[#666]">
+            <span>Qty: {item.quantity}</span>
+            <span>×</span>
+            <LineItemUnitPrice
+              item={item}
+              style="tight"
+              currencyCode={currencyCode}
+            />
           </div>
-          <ErrorMessage error={error} data-testid="product-error-message" />
-        </Table.Cell>
-      )}
+        </div>
+        <LineItemPrice
+          item={item}
+          style="tight"
+          currencyCode={currencyCode}
+        />
+      </div>
+    )
+  }
 
-      {type === "full" && (
-        <Table.Cell className="hidden small:table-cell">
-          <LineItemUnitPrice
-            item={item}
-            style="tight"
-            currencyCode={currencyCode}
-          />
-        </Table.Cell>
-      )}
-
-      <Table.Cell className="!pr-0">
-        <span
-          className={clx("!pr-0", {
-            "flex flex-col items-end h-full justify-center": type === "preview",
-          })}
+  return (
+    <div className="grid grid-cols-[2fr_1fr_1fr_1fr] gap-4 py-6 border-b border-[#E5E5E5] items-center">
+      <div className="flex gap-4">
+        <LocalizedClientLink
+          href={`/products/${item.product_handle}`}
+          className="w-24 h-32"
         >
-          {type === "preview" && (
-            <span className="flex gap-x-1 ">
-              <Text className="text-ui-fg-muted">{item.quantity}x </Text>
-              <LineItemUnitPrice
-                item={item}
-                style="tight"
-                currencyCode={currencyCode}
-              />
-            </span>
-          )}
-          <LineItemPrice
-            item={item}
-            style="tight"
-            currencyCode={currencyCode}
+          <Thumbnail
+            thumbnail={item.thumbnail}
+            images={item.variant?.product?.images}
+            size="square"
           />
-        </span>
-      </Table.Cell>
-    </Table.Row>
+        </LocalizedClientLink>
+        <div>
+          <h3 className="font-serif text-base font-medium text-[#1A1A1A] mb-2">
+            {item.product_title}
+          </h3>
+          <LineItemOptions variant={item.variant} data-testid="product-variant" />
+          <button
+            className="mt-3 text-xs text-[#666] hover:text-red-600 transition-colors flex items-center gap-1"
+            onClick={() => deleteLineItem(item.id)}
+            data-testid="product-delete-button"
+          >
+            <Trash2 size={14} />
+            Remove
+          </button>
+        </div>
+      </div>
+
+      <div className="flex justify-center">
+        <div className="flex gap-2 items-center">
+          <CartItemSelect
+            value={item.quantity}
+            onChange={(value) => changeQuantity(parseInt(value.target.value))}
+            className="w-16 h-10 px-3 border border-[#E5E5E5] text-sm"
+            data-testid="product-select-button"
+          >
+            {Array.from(
+              {
+                length: Math.min(maxQuantity, 10),
+              },
+              (_, i) => (
+                <option value={i + 1} key={i}>
+                  {i + 1}
+                </option>
+              )
+            )}
+          </CartItemSelect>
+          {updating && <Spinner />}
+        </div>
+        <ErrorMessage error={error} data-testid="product-error-message" />
+      </div>
+
+      <div className="hidden md:flex justify-center">
+        <LineItemUnitPrice
+          item={item}
+          style="tight"
+          currencyCode={currencyCode}
+        />
+      </div>
+
+      <div className="flex justify-end">
+        <LineItemPrice
+          item={item}
+          style="tight"
+          currencyCode={currencyCode}
+        />
+      </div>
+    </div>
   )
 }
 

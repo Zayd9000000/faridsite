@@ -14,9 +14,11 @@
   ],
   "scripts": {
     "build": "medusa build",
+    "build:admin": "medusa build --admin-only",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "seed:books": "medusa exec ./src/scripts/seed-books.ts",
     "start": "medusa start",
+    "start:prod": "node start-production.js",
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",

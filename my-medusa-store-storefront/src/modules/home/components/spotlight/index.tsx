@@ -23,9 +23,9 @@ const SpotlightSection = () => {
         </div>
         <div className="relative h-[560px] bg-gray-200 overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center scale-[1.2]"
             style={{
-              backgroundImage: `url('https://covers.openlibrary.org/b/isbn/9780143108276-L.jpg')`,
+              backgroundImage: `url('/images/site/master-margarita.jpeg')`,
             }}
           />
         </div>
@@ -57,11 +57,11 @@ const SpotlightSection = () => {
               </div>
             </div>
             
-            <div className="relative h-[500px]">
+            <div className="relative h-[500px] overflow-hidden">
               <div 
-                className="absolute inset-0 transform -rotate-6 shadow-2xl"
+                className="absolute inset-0 transform -rotate-6 shadow-2xl scale-[1.35]"
                 style={{
-                  backgroundImage: `url('https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg')`,
+                  backgroundImage: `url('/images/site/books-becoming.jpeg')`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
@@ -85,7 +85,15 @@ const SpotlightSection = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="h-64 bg-[#F5F5F5] mb-8"></div>
+              <div className="h-64 mb-8 relative overflow-hidden bg-[#F5F5F5]">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url('/images/site/antique-library.jpg')`,
+                    filter: 'brightness(0.85) contrast(1.1) sepia(0.2)'
+                  }}
+                />
+              </div>
               <h3 className="font-serif text-[19px] leading-[26px] font-light mb-4">Metaphysics & Mind</h3>
               <p className="text-[14px] leading-[22px] text-[#666] font-light">
                 Where thought turns inward to examine its own architecture—from 
@@ -94,7 +102,15 @@ const SpotlightSection = () => {
             </div>
             
             <div className="text-center">
-              <div className="h-64 bg-[#F5F5F5] mb-8"></div>
+              <div className="h-64 mb-8 relative overflow-hidden bg-[#F5F5F5]">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url('/images/site/sacred-geometry.jpg')`,
+                    filter: 'brightness(0.75) contrast(1.2) sepia(0.15)'
+                  }}
+                />
+              </div>
               <h3 className="font-serif text-[19px] leading-[26px] font-light mb-4">Symbol & Divination</h3>
               <p className="text-[14px] leading-[22px] text-[#666] font-light">
                 The ancient arts of reading signs—I Ching, Tarot, sacred geometry—texts 
@@ -103,7 +119,15 @@ const SpotlightSection = () => {
             </div>
             
             <div className="text-center">
-              <div className="h-64 bg-[#F5F5F5] mb-8"></div>
+              <div className="h-64 mb-8 relative overflow-hidden bg-[#F5F5F5]">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url('/images/site/illuminated-manuscript.jpg')`,
+                    filter: 'brightness(0.9) contrast(1.1) sepia(0.1)'
+                  }}
+                />
+              </div>
               <h3 className="font-serif text-[19px] leading-[26px] font-light mb-4">Art & Aesthetics</h3>
               <p className="text-[14px] leading-[22px] text-[#666] font-light">
                 Beauty as a form of knowledge—from Renaissance treatises on proportion 

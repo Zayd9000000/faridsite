@@ -48,26 +48,15 @@ const AnimatedThumbnail: React.FC<AnimatedThumbnailProps> = ({
       )}
       data-testid={dataTestid}
     >
-      {/* Primary Image */}
+      {/* Primary Image - No sliding animation */}
       {primaryImage && (
         <div 
-          className="absolute inset-0 transition-transform duration-[400ms] ease-out group-hover:-translate-x-full"
+          className="absolute inset-0"
           style={{
             backgroundImage: `url('${primaryImage}')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-      )}
-      
-      {/* Secondary Image (reveals on hover) */}
-      {secondaryImage && (
-        <div 
-          className="absolute inset-0 transition-transform duration-[400ms] ease-out translate-x-full group-hover:translate-x-0"
-          style={{
-            backgroundImage: `url('${secondaryImage}')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         />
       )}

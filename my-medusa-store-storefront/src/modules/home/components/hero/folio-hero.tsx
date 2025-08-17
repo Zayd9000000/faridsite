@@ -24,7 +24,7 @@ const FolioHero = () => {
         <div 
           className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900"
           style={{
-            backgroundImage: `url('/images/site/opencottage.png')`,
+            backgroundImage: `url('/images/site/hero-image.jpeg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             transform: 'scale(1.05)',

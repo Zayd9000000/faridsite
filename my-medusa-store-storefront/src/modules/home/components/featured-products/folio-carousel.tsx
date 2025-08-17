@@ -87,10 +87,10 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
       author: "Leo Tolstoy",
       price: "£95",
       badge: null,
-      thumbnail: "https://covers.openlibrary.org/b/isbn/9780143035008-L.jpg",
+      thumbnail: "https://covers.openlibrary.org/b/isbn/9780199232765-L.jpg",
       images: [
-        { url: "https://covers.openlibrary.org/b/isbn/9780143035008-L.jpg" },
-        { url: "https://covers.openlibrary.org/b/isbn/9780199232765-L.jpg" }
+        { url: "https://covers.openlibrary.org/b/isbn/9780199232765-L.jpg" },
+        { url: "https://covers.openlibrary.org/b/isbn/9780140447934-L.jpg" }
       ]
     },
     {
@@ -100,10 +100,10 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
       author: "James Joyce",
       price: "£110",
       badge: "LIMITED STOCK",
-      thumbnail: "https://covers.openlibrary.org/b/isbn/9780141182803-L.jpg",
+      thumbnail: "https://covers.openlibrary.org/b/isbn/9780679722762-L.jpg",
       images: [
-        { url: "https://covers.openlibrary.org/b/isbn/9780141182803-L.jpg" },
-        { url: "https://covers.openlibrary.org/b/isbn/9780679722762-L.jpg" }
+        { url: "https://covers.openlibrary.org/b/isbn/9780679722762-L.jpg" },
+        { url: "https://covers.openlibrary.org/b/isbn/9780141182803-L.jpg" }
       ]
     },
     {
@@ -219,29 +219,20 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
 
                     {/* Image Container with Hover Effect */}
                     <div className="product-card-image relative overflow-hidden bg-[#F5F5F5]">
-                      {/* Primary Image */}
+                      {/* Primary Image - No sliding animation */}
                       <div 
-                        className="absolute inset-0 transition-transform duration-400 group-hover:-translate-x-full"
+                        className="absolute inset-0"
                         style={{
                           backgroundImage: `url('${imageUrl}')`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center'
-                        }}
-                      />
-                      
-                      {/* Secondary Image (reveals on hover) */}
-                      <div 
-                        className="absolute inset-0 transition-transform duration-400 translate-x-full group-hover:translate-x-0"
-                        style={{
-                          backgroundImage: `url('${secondaryImageUrl}')`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center'
+                          backgroundSize: 'contain',
+                          backgroundPosition: 'center',
+                          backgroundRepeat: 'no-repeat'
                         }}
                       />
 
                       {/* Add to Bag Button */}
                       <button 
-                        className="absolute bottom-0 left-0 right-0 h-12 bg-[#1A1A1A] text-white text-xs tracking-wider uppercase transform translate-y-full transition-transform duration-300 delay-100 group-hover:translate-y-0 disabled:opacity-50"
+                        className="absolute bottom-0 left-0 right-0 h-12 bg-[#1A1A1A] text-white text-xs tracking-wider uppercase transform translate-y-full transition-transform duration-300 group-hover:translate-y-0 disabled:opacity-50"
                         onClick={(e) => handleAddToCart(e, product)}
                         disabled={addingToCart === product.id}
                       >

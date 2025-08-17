@@ -4,7 +4,7 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import StoreTemplate from "@modules/store/templates"
 
 export const metadata: Metadata = {
-  title: "Our Collection | The Literary Collection",
+  title: "Our Collection | Sparrow Hall",
   description: "Discover timeless narratives and exquisitely crafted volumes carefully selected to become treasured parts of your library.",
 }
 

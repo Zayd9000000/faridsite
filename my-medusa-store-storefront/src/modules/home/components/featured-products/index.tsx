@@ -35,8 +35,8 @@ export default async function FeaturedProducts({
     <>
       <FolioCarousel 
         products={carouselProducts} 
-        title="Curated Treasures"
-        subtitle="Discover our hand-selected editions, each one a masterpiece of literary craft and artistic vision."
+        title="Recent Arrivals"
+        subtitle="Books that have found their way to our shelves, waiting for the reader who will understand their particular silence."
       />
       {collections.map((collection) => (
         <li key={collection.id} className="list-none">

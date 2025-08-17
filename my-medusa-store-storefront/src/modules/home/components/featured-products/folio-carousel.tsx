@@ -74,8 +74,11 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
       author: "Dante Alighieri",
       price: "£125",
       badge: "SELLING FAST",
-      thumbnail: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400",
-      images: [{ url: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400" }]
+      thumbnail: "https://covers.openlibrary.org/b/isbn/9780142437223-L.jpg",
+      images: [
+        { url: "https://covers.openlibrary.org/b/isbn/9780142437223-L.jpg" },
+        { url: "https://covers.openlibrary.org/b/isbn/9780140448955-L.jpg" }
+      ]
     },
     {
       id: "2",
@@ -84,8 +87,11 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
       author: "Leo Tolstoy",
       price: "£95",
       badge: null,
-      thumbnail: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400",
-      images: [{ url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400" }]
+      thumbnail: "https://covers.openlibrary.org/b/isbn/9780143035008-L.jpg",
+      images: [
+        { url: "https://covers.openlibrary.org/b/isbn/9780143035008-L.jpg" },
+        { url: "https://covers.openlibrary.org/b/isbn/9780199232765-L.jpg" }
+      ]
     },
     {
       id: "3",
@@ -94,8 +100,11 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
       author: "James Joyce",
       price: "£110",
       badge: "LIMITED STOCK",
-      thumbnail: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400",
-      images: [{ url: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400" }]
+      thumbnail: "https://covers.openlibrary.org/b/isbn/9780141182803-L.jpg",
+      images: [
+        { url: "https://covers.openlibrary.org/b/isbn/9780141182803-L.jpg" },
+        { url: "https://covers.openlibrary.org/b/isbn/9780679722762-L.jpg" }
+      ]
     },
     {
       id: "4",
@@ -104,8 +113,11 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
       author: "Miguel de Cervantes",
       price: "£85",
       badge: null,
-      thumbnail: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400",
-      images: [{ url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400" }]
+      thumbnail: "https://covers.openlibrary.org/b/isbn/9780142437230-L.jpg",
+      images: [
+        { url: "https://covers.openlibrary.org/b/isbn/9780142437230-L.jpg" },
+        { url: "https://covers.openlibrary.org/b/isbn/9780060934347-L.jpg" }
+      ]
     },
     {
       id: "5",
@@ -114,8 +126,11 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
       author: "Herman Melville",
       price: "£75",
       badge: "NEW ARRIVAL",
-      thumbnail: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400",
-      images: [{ url: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400" }]
+      thumbnail: "https://covers.openlibrary.org/b/isbn/9780142437247-L.jpg",
+      images: [
+        { url: "https://covers.openlibrary.org/b/isbn/9780142437247-L.jpg" },
+        { url: "https://covers.openlibrary.org/b/isbn/9780143124672-L.jpg" }
+      ]
     },
     {
       id: "6",
@@ -124,8 +139,11 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
       author: "Jane Austen",
       price: "£65",
       badge: null,
-      thumbnail: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400",
-      images: [{ url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400" }]
+      thumbnail: "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
+      images: [
+        { url: "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg" },
+        { url: "https://covers.openlibrary.org/b/isbn/9780141040349-L.jpg" }
+      ]
     }
   ]
 
@@ -133,12 +151,12 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
     <section className="py-20 bg-white">
       <div className="content-container">
         {/* Section Header */}
-        <div className="text-center mb-10">
-          <h2 className="font-serif text-[42px] leading-[46px] font-medium mb-3">
-            {title || "What Everyone's Reading Right Now"}
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-[38px] leading-[46px] font-light mb-4">
+            {title || "Recent Arrivals"}
           </h2>
-          <p className="text-[15px] leading-[22px] font-normal text-[#666]">
-            {subtitle || "Our most sought-after editions. These are the treasures that collectors return to time and again."}
+          <p className="text-[16px] leading-[26px] font-light text-[#666] max-w-3xl mx-auto">
+            {subtitle || "Books that have found their way to our shelves, waiting for the reader who will understand their particular silence."}
           </p>
         </div>
 
@@ -197,12 +215,7 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
                 >
                   {/* Product Card */}
                   <div className="relative">
-                    {/* Badge */}
-                    {product.badge && (
-                      <span className="product-badge">
-                        {product.badge}
-                      </span>
-                    )}
+                    {/* Remove commercial badges */}
 
                     {/* Image Container with Hover Effect */}
                     <div className="product-card-image relative overflow-hidden bg-[#F5F5F5]">
@@ -237,12 +250,12 @@ const FolioCarousel = ({ products = [], title, subtitle }: FolioCarouselProps) =
                     </div>
 
                     {/* Product Info */}
-                    <div className="pt-3">
-                      <p className="text-[12px] text-[#666] mb-1 font-medium tracking-[1px] uppercase">{author}</p>
-                      <h3 className="font-serif text-[18px] leading-[22px] font-medium mb-1 group-hover:underline">
+                    <div className="pt-4">
+                      <p className="text-[11px] text-[#666] mb-2 font-light tracking-[1.5px] uppercase">{author}</p>
+                      <h3 className="font-serif text-[17px] leading-[24px] font-light mb-2">
                         {product.title}
                       </h3>
-                      <p className="text-[14px] font-semibold">{price}</p>
+                      <p className="text-[13px] font-light text-[#444]">{price}</p>
                     </div>
                   </div>
                 </LocalizedClientLink>

@@ -45,54 +45,34 @@ const FolioNav = ({ cartItemCount = 0, customer }: FolioNavProps) => {
   }, [])
 
   const navItems = [
-    { label: "New Arrivals", href: "/store", hasDropdown: false },
     { 
-      label: "Books", 
-      href: "/store",
+      label: "Recent Arrivals", 
+      href: "/store", 
       hasDropdown: true,
       dropdownContent: {
         categories: [
-          "Collector's Editions",
-          "Fiction Masterworks",
-          "Historical Epics",
-          "Philosophy & Essays",
-          "Poetry Collections",
-          "Science & Nature",
-          "Limited Editions",
-          "Under £50"
+          "Metaphysics",
+          "Divination",
+          "Art & Aesthetics",
+          "Theology",
+          "Poetry",
+          "Philosophy",
+          "History",
+          "Literature"
         ],
         featured: [
-          { title: "The Divine Comedy", author: "Dante Alighieri", price: "£125" },
-          { title: "One Hundred Years of Solitude", author: "Gabriel García Márquez", price: "£95" },
-          { title: "The Master and Margarita", author: "Mikhail Bulgakov", price: "£85" }
+          { title: "Spinoza's Ethics", author: "Benedictus de Spinoza", price: "£95" },
+          { title: "The I Ching", author: "Wilhelm translation", price: "£145" },
+          { title: "On Painting", author: "Leon Battista Alberti", price: "£135" }
         ]
       }
     },
-    { 
-      label: "Collections", 
-      href: "/store",
-      hasDropdown: true,
-      dropdownContent: {
-        categories: [
-          "Literary Classics",
-          "Modern Literature",
-          "World Literature",
-          "Gothic & Horror",
-          "Science Fiction",
-          "Fantasy Epics",
-          "Historical Fiction",
-          "Philosophy"
-        ],
-        featured: [
-          { title: "Russian Masters", description: "Tolstoy, Dostoevsky, and more", price: "From £75" },
-          { title: "Gothic Collection", description: "Dark tales and mysteries", price: "From £65" }
-        ]
-      }
-    },
-    { label: "Limited Editions", href: "/store", hasDropdown: false },
-    { label: "Gifts", href: "/store", hasDropdown: false },
-    { label: "Last Chance", href: "/store", hasDropdown: false },
-    { label: "Journal", href: "/store", hasDropdown: false }
+    { label: "Metaphysics", href: "/store", hasDropdown: false },
+    { label: "Divination", href: "/store", hasDropdown: false },
+    { label: "Art & Aesthetics", href: "/store", hasDropdown: false },
+    { label: "Theology", href: "/store", hasDropdown: false },
+    { label: "Poetry", href: "/store", hasDropdown: false },
+    { label: "The House", href: "/#the-house", hasDropdown: false, isScrollLink: true }
   ]
 
   const handleMouseEnter = (label: string) => {
@@ -112,6 +92,20 @@ const FolioNav = ({ cartItemCount = 0, customer }: FolioNavProps) => {
     await signout(countryCode)
   }
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: any) => {
+    if (item.isScrollLink) {
+      e.preventDefault()
+      const targetId = item.href.split('#')[1]
+      const element = document.getElementById(targetId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else if (pathname !== '/') {
+        // If not on homepage, navigate to homepage with hash
+        window.location.href = item.href
+      }
+    }
+  }
+
   return (
     <>
       {/* Desktop Navigation */}
@@ -119,10 +113,7 @@ const FolioNav = ({ cartItemCount = 0, customer }: FolioNavProps) => {
         <div className="h-[72px] content-container flex items-center justify-between">
           {/* Logo */}
           <LocalizedClientLink href="/" className="flex items-center">
-            <div className="w-10 h-10 border-2 border-[#1A1A1A] flex items-center justify-center mr-3">
-              <span className="font-serif text-base font-medium">LC</span>
-            </div>
-            <span className="hidden lg:block font-serif text-lg tracking-wide">The Literary Collection</span>
+            <span className="font-serif text-[22px] font-light tracking-[0.5px]">Sparrow Hall</span>
           </LocalizedClientLink>
 
           {/* Desktop Menu */}
@@ -137,16 +128,17 @@ const FolioNav = ({ cartItemCount = 0, customer }: FolioNavProps) => {
                 <LocalizedClientLink
                   href={item.href}
                   className="text-[11px] font-normal tracking-[0.8px] uppercase text-[#1A1A1A] hover:opacity-70 transition-opacity duration-200"
+                  onClick={(e: any) => handleNavClick(e, item)}
                 >
                   {item.label}
                 </LocalizedClientLink>
                 
                 {/* Dropdown Menu */}
                 {item.hasDropdown && activeDropdown === item.label && (
-                  <div className="absolute left-0 w-screen -ml-[50vw] mt-8 z-40" style={{ top: '100%' }}>
-                    <div className="bg-white border-y border-[#E5E5E5] shadow-lg">
-                      <div className="content-container py-8">
-                        <div className="grid grid-cols-4 gap-10">
+                  <div className="absolute left-[50%] transform -translate-x-1/2 mt-8 z-40 w-[90vw] max-w-[1200px]" style={{ top: '100%' }}>
+                    <div className="bg-white border border-[#E5E5E5] shadow-lg">
+                      <div className="px-8 py-8">
+                        <div className="grid grid-cols-4 gap-8">
                           {/* Categories */}
                           <div className="col-span-1">
                             <h3 className="text-sm font-medium text-[#666] mb-4">Categories</h3>
@@ -290,7 +282,10 @@ const FolioNav = ({ cartItemCount = 0, customer }: FolioNavProps) => {
                     <LocalizedClientLink
                       href={item.href}
                       className="block text-lg py-2 border-b border-[#F5F5F5]"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e: any) => {
+                        handleNavClick(e, item)
+                        setIsMenuOpen(false)
+                      }}
                     >
                       {item.label}
                     </LocalizedClientLink>

@@ -23,11 +23,11 @@ const StoreTemplate = ({
       {/* Hero Title Section */}
       <div className="w-full py-16 border-b border-[#E5E5E5] bg-gradient-to-b from-[#FAFAFA] to-white">
         <div className="content-container text-center">
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#1A1A1A] mb-4">
-            Discover Timeless Narratives
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-[#1A1A1A] mb-4 font-light">
+            The Collection
           </h1>
-          <p className="text-lg text-[#666] max-w-2xl mx-auto font-medium leading-relaxed">
-            Each volume in our collection has been carefully selected and exquisitely crafted to become a treasured part of your library
+          <p className="text-lg text-[#666] max-w-2xl mx-auto font-light leading-relaxed">
+            Each book arrives as a question, selected not to be consumed but contemplated—volumes that reward the patience of slow reading
           </p>
         </div>
       </div>

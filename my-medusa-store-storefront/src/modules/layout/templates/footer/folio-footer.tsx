@@ -27,10 +27,10 @@ const FolioFooter = () => {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
             <div className="w-20 h-20 border-2 border-white mx-auto mb-6 flex items-center justify-center">
-              <span className="font-serif text-2xl">LC</span>
+              <span className="font-serif text-2xl">SH</span>
             </div>
-            <h3 className="font-serif text-2xl mb-2">The Literary Collection</h3>
-            <p className="text-sm opacity-80">Timeless Stories, Exceptional Editions</p>
+            <h3 className="font-serif text-2xl mb-2">Sparrow Hall</h3>
+            <p className="text-sm opacity-80">A sanctuary for the contemplative reader</p>
           </div>
         </div>
       </section>
@@ -130,8 +130,8 @@ const FolioFooter = () => {
               <h4 className="text-sm font-medium mb-4">CONTACT US</h4>
               <p className="text-sm text-[#666] mb-2">020 7400 4200</p>
               <p className="text-sm text-[#666] mb-4">
-                <a href="mailto:enquiries@literarycollection.com" className="hover:text-[#1A1A1A]">
-                  enquiries@literarycollection.com
+                <a href="mailto:enquiries@sparrowhall.com" className="hover:text-[#1A1A1A]">
+                  enquiries@sparrowhall.com
                 </a>
               </p>
               <p className="text-sm text-[#666]">
@@ -207,7 +207,7 @@ const FolioFooter = () => {
               <div className="border-b border-[#E5E5E5] pb-4">
                 <h4 className="overline mb-3">CONTACT US</h4>
                 <p className="text-sm text-[#666]">020 7400 4200</p>
-                <p className="text-sm text-[#666]">enquiries@literarycollection.com</p>
+                <p className="text-sm text-[#666]">enquiries@sparrowhall.com</p>
               </div>
             </div>
           </div>
@@ -218,9 +218,9 @@ const FolioFooter = () => {
               {/* Logo and Tagline */}
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 border-2 border-[#1A1A1A] flex items-center justify-center">
-                  <span className="font-serif text-sm">LC</span>
+                  <span className="font-serif text-sm">SH</span>
                 </div>
-                <span className="font-serif text-sm">Love Books, Love Life.</span>
+                <span className="font-serif text-sm">Sparrow Hall</span>
               </div>
 
               {/* Social Icons */}
@@ -243,7 +243,7 @@ const FolioFooter = () => {
             {/* Copyright */}
             <div className="text-center mt-8">
               <p className="text-xs text-[#999]">
-                ©The Literary Collection {new Date().getFullYear()} | Site by Tom&Co
+                ©Sparrow Hall {new Date().getFullYear()} | Site by Tom&Co
               </p>
             </div>
           </div>

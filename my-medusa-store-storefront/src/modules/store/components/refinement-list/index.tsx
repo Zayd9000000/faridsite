@@ -42,28 +42,29 @@ const RefinementList = ({ sortBy, 'data-testid': dataTestId }: RefinementListPro
   }
 
   const categories = [
-    "New Arrivals",
-    "Collector's Editions",
-    "Fiction Masterworks",
-    "Historical Epics",
-    "Philosophy & Essays",
-    "Poetry Collections",
-    "Science & Nature",
-    "Limited Editions",
-    "Under £50",
-    "Gifts",
-    "Last Chance"
+    "Recent Arrivals",
+    "Metaphysics",
+    "Divination",
+    "Art & Aesthetics",
+    "Theology",
+    "Poetry"
   ]
 
   const collections = [
-    "Literary Classics",
-    "Modern Literature",
-    "World Literature",
-    "Gothic & Horror",
-    "Science Fiction",
-    "Fantasy Epics",
-    "Historical Fiction",
-    "Philosophy"
+    "Ontology & Being",
+    "Epistemology",
+    "Philosophy of Mind",
+    "Eastern Philosophy",
+    "Phenomenology",
+    "Ethics & Morality",
+    "I Ching",
+    "Tarot & Oracle",
+    "Astrology",
+    "Sacred Geometry",
+    "Renaissance Treatises",
+    "Color Theory",
+    "Sacred Art",
+    "Architecture"
   ]
 
   return (

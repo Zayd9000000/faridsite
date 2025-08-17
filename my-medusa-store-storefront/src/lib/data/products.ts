@@ -97,7 +97,7 @@ export const listProducts = async ({
         handle: "odyssey-iliad-collection",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780140268867-L.jpg",
         weight: 2000,
         length: null,
         height: null,
@@ -179,7 +179,7 @@ export const listProducts = async ({
         images: [
           {
             id: "img_01HFGYQM87RC02GQGX47GZS9V6",
-            url: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600",
+            url: "https://covers.openlibrary.org/b/isbn/9780140268867-L.jpg",
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString(),
             deleted_at: null,
@@ -197,7 +197,7 @@ export const listProducts = async ({
         handle: "master-margarita",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1524578271613-d550eacf6090?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780143108276-L.jpg",
         weight: 1500,
         length: null,
         height: null,
@@ -279,7 +279,7 @@ export const listProducts = async ({
         images: [
           {
             id: "img_01HFGYQM87RC02GQGX47GZS9V11",
-            url: "https://images.unsplash.com/photo-1524578271613-d550eacf6090?w=600",
+            url: "https://covers.openlibrary.org/b/isbn/9780143108276-L.jpg",
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString(),
             deleted_at: null,
@@ -297,7 +297,7 @@ export const listProducts = async ({
         handle: "one-hundred-years-solitude",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780060883287-L.jpg",
         weight: 1800,
         variants: [{
           id: "variant_01HFGYQM87RC02GQGX47GZS9V13",
@@ -311,7 +311,7 @@ export const listProducts = async ({
           }
         }],
         options: [],
-        images: [{ url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600" }],
+        images: [{ url: "https://covers.openlibrary.org/b/isbn/9780060883287-L.jpg" }],
         tags: [],
         categories: []
       } as any,
@@ -323,7 +323,7 @@ export const listProducts = async ({
         handle: "complete-shakespeare",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9781904271338-L.jpg",
         weight: 5000,
         variants: [{
           id: "variant_01HFGYQM87RC02GQGX47GZS9V15",
@@ -337,7 +337,7 @@ export const listProducts = async ({
           }
         }],
         options: [],
-        images: [{ url: "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?w=600" }],
+        images: [{ url: "https://covers.openlibrary.org/b/isbn/9781904271338-L.jpg" }],
         tags: [],
         categories: []
       } as any,
@@ -349,7 +349,7 @@ export const listProducts = async ({
         handle: "pride-prejudice-bicentennial",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
         weight: 1200,
         variants: [{
           id: "variant_01HFGYQM87RC02GQGX47GZS9V17",
@@ -363,7 +363,7 @@ export const listProducts = async ({
           }
         }],
         options: [],
-        images: [{ url: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600" }],
+        images: [{ url: "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg" }],
         tags: [],
         categories: []
       } as any,
@@ -375,7 +375,7 @@ export const listProducts = async ({
         handle: "divine-comedy-dore",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780142437223-L.jpg",
         weight: 2200,
         variants: [{
           id: "variant_01HFGYQM87RC02GQGX47GZS9V19",
@@ -389,7 +389,7 @@ export const listProducts = async ({
           }
         }],
         options: [],
-        images: [{ url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" }],
+        images: [{ url: "https://covers.openlibrary.org/b/isbn/9780142437223-L.jpg" }],
         tags: [],
         categories: []
       } as any,
@@ -401,7 +401,7 @@ export const listProducts = async ({
         handle: "war-peace-definitive",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780143035008-L.jpg",
         weight: 2800,
         variants: [{
           id: "variant_01HFGYQM87RC02GQGX47GZS9V21",
@@ -415,7 +415,7 @@ export const listProducts = async ({
           }
         }],
         options: [],
-        images: [{ url: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=600" }],
+        images: [{ url: "https://covers.openlibrary.org/b/isbn/9780143035008-L.jpg" }],
         tags: [],
         categories: []
       } as any,
@@ -427,7 +427,7 @@ export const listProducts = async ({
         handle: "dune-archives",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780441013593-L.jpg",
         weight: 3500,
         variants: [{
           id: "variant_01HFGYQM87RC02GQGX47GZS9V23",
@@ -441,7 +441,7 @@ export const listProducts = async ({
           }
         }],
         options: [],
-        images: [{ url: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=600" }],
+        images: [{ url: "https://covers.openlibrary.org/b/isbn/9780441013593-L.jpg" }],
         tags: [],
         categories: []
       } as any,
@@ -453,7 +453,7 @@ export const listProducts = async ({
         handle: "great-gatsby-deco",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780684801520-L.jpg",
         weight: 1000,
         variants: [{
           id: "variant_01HFGYQM87RC02GQGX47GZS9V25",
@@ -467,7 +467,7 @@ export const listProducts = async ({
           }
         }],
         options: [],
-        images: [{ url: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600" }],
+        images: [{ url: "https://covers.openlibrary.org/b/isbn/9780684801520-L.jpg" }],
         tags: [],
         categories: []
       } as any,
@@ -479,7 +479,7 @@ export const listProducts = async ({
         handle: "1984-anniversary",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780452284234-L.jpg",
         weight: 900,
         variants: [{
           id: "variant_01HFGYQM87RC02GQGX47GZS9V27",
@@ -493,7 +493,7 @@ export const listProducts = async ({
           }
         }],
         options: [],
-        images: [{ url: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600" }],
+        images: [{ url: "https://covers.openlibrary.org/b/isbn/9780452284234-L.jpg" }],
         tags: [],
         categories: []
       } as any,
@@ -505,7 +505,7 @@ export const listProducts = async ({
         handle: "don-quixote-complete",
         is_giftcard: false,
         status: "published",
-        thumbnail: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600",
+        thumbnail: "https://covers.openlibrary.org/b/isbn/9780142437230-L.jpg",
         weight: 2400,
         variants: [{
           id: "variant_01HFGYQM87RC02GQGX47GZS9V29",
@@ -519,7 +519,7 @@ export const listProducts = async ({
           }
         }],
         options: [],
-        images: [{ url: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600" }],
+        images: [{ url: "https://covers.openlibrary.org/b/isbn/9780142437230-L.jpg" }],
         tags: [],
         categories: []
       } as any

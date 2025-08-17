@@ -65,7 +65,7 @@ const Login = ({ setCurrentView }: Props) => {
         </button>
       </form>
       <div className="text-center text-[14px] text-[#666] mt-8">
-        New to The Literary Collection?{" "}
+        New to Sparrow Hall?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
           className="text-[#1A1A1A] font-medium hover:underline"

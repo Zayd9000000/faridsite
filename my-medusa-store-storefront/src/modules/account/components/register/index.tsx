@@ -19,7 +19,7 @@ const Register = ({ setCurrentView }: Props) => {
       data-testid="register-page"
     >
       <h1 className="font-serif text-[32px] leading-[36px] font-medium text-[#1A1A1A] mb-3 text-center">
-        Join The Literary Collection
+        Join Sparrow Hall
       </h1>
       <p className="text-center text-[15px] leading-[24px] text-[#666] mb-10">
         Create your account to access exclusive editions and curated recommendations.

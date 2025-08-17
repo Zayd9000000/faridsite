@@ -6,9 +6,9 @@ import SpotlightSection from "@modules/home/components/spotlight"
 import { listCollections } from "@lib/data/collections"
 
 export const metadata: Metadata = {
-  title: "The Literary Collection - Beautifully Crafted Editions",
+  title: "Sparrow Hall - A Sanctuary for the Mind",
   description:
-    "Discover our exquisite collection of hand-bound literary masterpieces. Each edition combines scholarly excellence with artisanal craftsmanship.",
+    "Hidden in a quiet corner of the countryside, Sparrow Hall holds rare books from many lands and traditions—texts that provoke dialogue rather than deliver answers.",
 }
 
 export default async function Home(props: {

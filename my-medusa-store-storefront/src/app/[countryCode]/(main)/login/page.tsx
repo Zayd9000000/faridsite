@@ -3,7 +3,7 @@ import LoginTemplate from "@modules/account/templates/login-template"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 export const metadata: Metadata = {
-  title: "Login - The Literary Collection",
+  title: "Login - Sparrow Hall",
   description: "Sign in to your Literary Collection account to access exclusive features and manage your orders.",
 }
 
